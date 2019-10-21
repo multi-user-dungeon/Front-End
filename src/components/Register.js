@@ -29,7 +29,7 @@ const Register = () => {
           "https://lambda-mud-test.herokuapp.com/api/registration/",
           userInfo
         )
-        .then(res => console.log(res))
+        .then(res => localStorage.setItem("key", res.data.key))
         .catch(error =>
           setError("Username has already been taken. Please try name.")
         );

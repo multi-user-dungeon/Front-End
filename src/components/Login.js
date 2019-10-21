@@ -18,7 +18,7 @@ const Login = () => {
     if (userInfo.username && userInfo.password) {
       axios
         .post("https://lambda-mud-test.herokuapp.com/api/login/", userInfo)
-        .then(res => console.log(res))
+        .then(res => localStorage.setItem("key", res.data.key))
         .catch(error => setError("Wrong username/password. Please try again."));
     } else {
       setError("Needs more information");
