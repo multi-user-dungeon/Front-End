@@ -1,10 +1,10 @@
 import React from "react";
-import axios from "axios";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 const MoveButtons = () => {
   const move = event => {
     event.persist();
-    axios
+    axiosWithAuth
       .post("https://lambda-mud-test.herokuapp.com/api/adv/move/", {
         direction: event.target.name
       })

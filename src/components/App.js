@@ -4,8 +4,6 @@ import Register from "./Register";
 import MoveButtons from "./MoveButtons";
 
 function App() {
-  console.log(localStorage.getItem('key'))
-
   return (
     <div className="App">
       <p>Login</p>
