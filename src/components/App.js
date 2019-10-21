@@ -2,6 +2,7 @@ import React from "react";
 import Login from "./Login";
 import Register from "./Register";
 import MoveButtons from "./MoveButtons";
+import Logout from "./Logout";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Register />
       <p>Move Buttons</p>
       <MoveButtons />
+      <Logout />
     </div>
   );
 }
