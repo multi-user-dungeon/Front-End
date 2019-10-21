@@ -1,14 +1,14 @@
 import React from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
-const MoveButtons = () => {
+const MoveButtons = ({ setCurrentRoom }) => {
   const move = event => {
     event.persist();
     axiosWithAuth
       .post("https://lambda-mud-test.herokuapp.com/api/adv/move/", {
         direction: event.target.name
       })
-      .then(res => console.log(res))
+      .then(res => setCurrentRoom(res))
       .catch(error => console.log(error));
   };
 
