@@ -8,7 +8,7 @@ const MoveButtons = ({ setCurrentRoom }) => {
       .post("/api/adv/move/", {
         direction: event.target.name
       })
-      .then(res => setCurrentRoom(res))
+      .then(res => setCurrentRoom(res.data))
       .catch(error => console.log(error));
   };
 
