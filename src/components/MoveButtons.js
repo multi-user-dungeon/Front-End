@@ -4,8 +4,8 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 const MoveButtons = ({ setCurrentRoom }) => {
   const move = event => {
     event.persist();
-    axiosWithAuth
-      .post("https://lambda-mud-test.herokuapp.com/api/adv/move/", {
+    axiosWithAuth()
+      .post("/api/adv/move/", {
         direction: event.target.name
       })
       .then(res => setCurrentRoom(res))

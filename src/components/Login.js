@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Login = () => {
+const Login = ({ setLoggedIn }) => {
   const [userInfo, setUserInfo] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
 
@@ -18,7 +18,10 @@ const Login = () => {
     if (userInfo.username && userInfo.password) {
       axios
         .post("https://lambda-mud-test.herokuapp.com/api/login/", userInfo)
-        .then(res => localStorage.setItem("key", res.data.key))
+        .then(res => {
+          localStorage.setItem("key", res.data.key);
+          setLoggedIn(true);
+        })
         .catch(error => setError("Wrong username/password. Please try again."));
     } else {
       setError("Needs more information");
