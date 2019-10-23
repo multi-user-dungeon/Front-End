@@ -1,8 +1,6 @@
 import React from "react";
 
 const CurrentRoom = ({ currentRoom }) => {
-  console.log(currentRoom);
-
   return (
     <div>
       {currentRoom.title ? (
