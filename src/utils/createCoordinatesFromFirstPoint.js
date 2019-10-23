@@ -2,6 +2,7 @@ const createCoordinatesFromFirstPoint = roomsObject => {
   roomsObject[1].fields.x = 0;
   roomsObject[1].fields.y = 0;
   let coordinates = {};
+  let checkActive = {}
   coordinates[1] = roomsObject[1].fields;
   let largestX = 0;
   let smallestX = 0;
@@ -39,6 +40,13 @@ const createCoordinatesFromFirstPoint = roomsObject => {
       }
     }
     coordinates[room] = roomsObject[room].fields;
+
+    if (checkActive[coordinates[room].x]) {
+      checkActive[coordinates[room].x].push(coordinates[room].y)
+    } else {
+      checkActive[coordinates[room].x] = [coordinates[room].y]
+    }
+
     if (box.x < smallestX) {
       smallestX = box.x;
     } else if (box.x > largestX) {
@@ -53,7 +61,8 @@ const createCoordinatesFromFirstPoint = roomsObject => {
   let lengthOfX = Array(largestX - smallestX + 1).fill(0);
   let lengthOfY = Array(largestY - smallestY + 1).fill(0);
   let matrix = Array(largestY - smallestY + 1).fill().map(() => Array(largestX - smallestX + 1).fill(0))
-  return { coordinates, lengthOfX, lengthOfY, matrix };
+
+  return { coordinates, lengthOfX, lengthOfY, matrix, checkActive };
 };
 
 export default createCoordinatesFromFirstPoint;
