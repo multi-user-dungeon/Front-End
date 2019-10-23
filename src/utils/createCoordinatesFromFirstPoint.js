@@ -50,9 +50,10 @@ const createCoordinatesFromFirstPoint = roomsObject => {
       largestY = box.y;
     }
   });
-  let lengthOfX = largestX - smallestX + 1;
-  let lengthOfY = largestY - smallestY + 1;
-  return { coordinates, lengthOfX, lengthOfY };
+  let lengthOfX = Array(largestX - smallestX + 1).fill(0);
+  let lengthOfY = Array(largestY - smallestY + 1).fill(0);
+  let matrix = Array(largestY - smallestY + 1).fill().map(() => Array(largestX - smallestX + 1).fill(0))
+  return { coordinates, lengthOfX, lengthOfY, matrix };
 };
 
 export default createCoordinatesFromFirstPoint;
