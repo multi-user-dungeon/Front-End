@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Room from "./Room";
-import * as d3 from "d3";
 import createCoordinatesFromFirstPoint from "../utils/createCoordinatesFromFirstPoint";
 
 const Map = ({ roomsArray, roomsObject }) => {

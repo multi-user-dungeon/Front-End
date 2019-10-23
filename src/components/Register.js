@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+const testServer = "https://lambda-mud-test.herokuapp.com/api/registration/";
+
+const realServer = "http://mud18-app.herokuapp.com/api/registration/";
+
 const Register = () => {
   const [userInfo, setUserInfo] = useState({
     username: "",
+    email: "",
     password1: "",
     password2: ""
   });
@@ -25,10 +30,7 @@ const Register = () => {
       userInfo.password1.length >= 8
     ) {
       axios
-        .post(
-          "https://lambda-mud-test.herokuapp.com/api/registration/",
-          userInfo
-        )
+        .post(testServer, userInfo)
         .then(res => localStorage.setItem("key", res.data.key))
         .catch(error =>
           setError("Username has already been taken. Please try name.")
