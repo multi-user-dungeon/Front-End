@@ -3,6 +3,10 @@ const createCoordinatesFromFirstPoint = roomsObject => {
   roomsObject[1].fields.y = 0;
   let coordinates = {};
   coordinates[1] = roomsObject[1].fields;
+  let largestX = 0;
+  let smallestX = 0;
+  let largestY = 0;
+  let smallestY = 0;
   Object.keys(roomsObject).forEach(room => {
     let box = roomsObject[room].fields;
     let findXandY = "";
@@ -11,7 +15,6 @@ const createCoordinatesFromFirstPoint = roomsObject => {
         findXandY = "e_to";
         box.x = roomsObject[box[findXandY]].fields.x - 1;
         box.y = roomsObject[box[findXandY]].fields.y;
-        coordinates[room] = roomsObject[room].fields;
       }
     }
     if (box.w_to) {
@@ -19,7 +22,6 @@ const createCoordinatesFromFirstPoint = roomsObject => {
         findXandY = "w_to";
         box.x = roomsObject[box[findXandY]].fields.x + 1;
         box.y = roomsObject[box[findXandY]].fields.y;
-        coordinates[room] = roomsObject[room].fields;
       }
     }
     if (box.n_to) {
@@ -27,7 +29,6 @@ const createCoordinatesFromFirstPoint = roomsObject => {
         findXandY = "n_to";
         box.x = roomsObject[box[findXandY]].fields.x;
         box.y = roomsObject[box[findXandY]].fields.y - 1;
-        coordinates[room] = roomsObject[room].fields;
       }
     }
     if (box.s_to) {
@@ -35,11 +36,23 @@ const createCoordinatesFromFirstPoint = roomsObject => {
         findXandY = "s_to";
         box.x = roomsObject[box[findXandY]].fields.x;
         box.y = roomsObject[box[findXandY]].fields.y + 1;
-        coordinates[room] = roomsObject[room].fields;
       }
     }
+    coordinates[room] = roomsObject[room].fields;
+    if (box.x < smallestX) {
+      smallestX = box.x;
+    } else if (box.x > largestX) {
+      largestX = box.x;
+    }
+    if (box.y < smallestY) {
+      smallestY = box.y;
+    } else if (box.y > largestY) {
+      largestY = box.y;
+    }
   });
-  return coordinates;
+  let lengthOfX = largestX - smallestX + 1;
+  let lengthOfY = largestY - smallestY + 1;
+  return { coordinates, lengthOfX, lengthOfY };
 };
 
 export default createCoordinatesFromFirstPoint;
