@@ -28,11 +28,6 @@ const Map = ({ roomsArray, roomsObject }) => {
       setCheckActive(checkActive);
     }
   }, [roomsObject, roomsArray]);
-  console.log(coordinates);
-  console.log(lengthOfX);
-  console.log(lengthOfY);
-  console.log(matrix);
-  console.log(checkActive);
 
   return (
     <div

@@ -30,10 +30,11 @@ const Register = () => {
       userInfo.password1.length >= 8
     ) {
       axios
-        .post(testServer, userInfo)
+        .post(realServer, userInfo)
         .then(res => localStorage.setItem("key", res.data.key))
         .catch(error =>
-          setError("Username has already been taken. Please try name.")
+          {console.log(error)
+          setError("Username has already been taken. Please try name.")}
         );
     } else {
       if (userInfo.password1.length < 8) {
@@ -52,6 +53,14 @@ const Register = () => {
         placeholder="Username..."
         name="username"
         value={userInfo.username}
+        onChange={event => onInputChange(event)}
+      />
+      <input
+        autoComplete="new-email"
+        type="email"
+        placeholder="Email..."
+        name="email"
+        value={userInfo.email}
         onChange={event => onInputChange(event)}
       />
       <input
