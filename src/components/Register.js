@@ -8,7 +8,7 @@ const realServer = "http://mud18-app.herokuapp.com/api/registration/";
 const Register = () => {
   const [userInfo, setUserInfo] = useState({
     username: "",
-    email: "",
+    // email: "",
     password1: "",
     password2: ""
   });
@@ -30,7 +30,7 @@ const Register = () => {
       userInfo.password1.length >= 8
     ) {
       axios
-        .post(realServer, userInfo)
+        .post(testServer, userInfo)
         .then(res => localStorage.setItem("key", res.data.key))
         .catch(error =>
           {console.log(error)
@@ -55,14 +55,14 @@ const Register = () => {
         value={userInfo.username}
         onChange={event => onInputChange(event)}
       />
-      <input
+      {/* <input
         autoComplete="new-email"
         type="email"
         placeholder="Email..."
         name="email"
         value={userInfo.email}
         onChange={event => onInputChange(event)}
-      />
+      /> */}
       <input
         autoComplete="new-password"
         type="password"

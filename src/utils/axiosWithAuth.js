@@ -11,7 +11,7 @@ const axiosWithAuth = () => {
     headers: {
       Authorization: `Token ${token}`
     },
-    baseURL: realServer
+    baseURL: testServer
   });
 };
 
