@@ -34,6 +34,7 @@ function App() {
           roomArray.forEach(room => {
             roomObject[room.pk] = room;
           });
+          console.log(roomArray)
           setRoomsObject(roomObject);
           setRoomsArray(roomArray);
         })
