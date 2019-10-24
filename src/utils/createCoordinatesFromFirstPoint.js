@@ -3,7 +3,7 @@ const createCoordinatesFromFirstPoint = roomsObject => {
   roomsObject[1].fields.y = 0;
   let coordinates = {};
   let checkActive = {}
-  coordinates[1] = roomsObject[1].fields;
+  // coordinates[1] = roomsObject[1].fields;
   let largestX = 0;
   let smallestX = 0;
   let largestY = 0;
@@ -39,13 +39,21 @@ const createCoordinatesFromFirstPoint = roomsObject => {
         box.y = roomsObject[box[findXandY]].fields.y + 1;
       }
     }
-    coordinates[room] = roomsObject[room].fields;
+    coordinates[`${box.x} ${box.y}`] = roomsObject[room].fields;
 
-    if (checkActive[coordinates[room].x]) {
-      checkActive[coordinates[room].x].push(coordinates[room].y)
+    if (checkActive[coordinates[`${box.x} ${box.y}`].x]) {
+      checkActive[coordinates[`${box.x} ${box.y}`].x].push(coordinates[`${box.x} ${box.y}`].y)
     } else {
-      checkActive[coordinates[room].x] = [coordinates[room].y]
+      checkActive[coordinates[`${box.x} ${box.y}`].x] = [coordinates[`${box.x} ${box.y}`].y]
     }
+
+    // coordinates[room] = roomsObject[room].fields;
+
+    // if (checkActive[coordinates[room].x]) {
+    //   checkActive[coordinates[room].x].push(coordinates[room].y)
+    // } else {
+    //   checkActive[coordinates[room].x] = [coordinates[room].y]
+    // }
 
     if (box.x < smallestX) {
       smallestX = box.x;
@@ -58,8 +66,8 @@ const createCoordinatesFromFirstPoint = roomsObject => {
       largestY = box.y;
     }
   });
-  let lengthOfX = Array(largestX - smallestX + 1).fill(0);
-  let lengthOfY = Array(largestY - smallestY + 1).fill(0);
+  let lengthOfX = largestX - smallestX + 1;
+  let lengthOfY = largestY - smallestY + 1;
   let matrix = Array(largestY - smallestY + 1).fill().map(() => Array(largestX - smallestX + 1).fill(0))
 
   return { coordinates, lengthOfX, lengthOfY, matrix, checkActive };

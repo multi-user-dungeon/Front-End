@@ -1,33 +1,64 @@
 import React, { useState, useEffect } from "react";
+import chooseLinesToDisplay from "../utils/chooseLinesToDisplay";
 
-const Room = ({ rowIndex, colIndex, active }) => {
-  const [color, setColor] = useState("");
+const Room = ({ hallways, active }) => {
+  const [css, setCSS] = useState({});
 
   useEffect(() => {
-    if (active) {
-      setColor("red");
-    } else {
-      setColor("white");
-    }
-  }, [active]);
+    setCSS(chooseLinesToDisplay(hallways));
+  }, [hallways]);
+
+  console.log(css)
 
   return (
-    <div
-        style={{
-          height: "30px",
-          width: "30px",
-          background: color,
-          display: "flex",
-          flexWrap: 'wrap',
-          position: 'relative'
-        }}
-      >
-        <div style={{ width: '14px', margin: '0 auto', borderRight: '1px solid black', borderBottom: '1px solid black' }}></div>
-        <div style={{ width: '14px', margin: '0 auto', borderLeft: '1px solid red', borderBottom: '1px solid red' }}></div>
-        <div style={{ position: 'absolute', left: '12px', top: '12px', height: '6px', width: '6px', backgroundColor: 'purple', borderRadius: '50%', display: 'inline-block' }}></div>
-        <div style={{ width: '14px', margin: '0 auto', borderTop: '1px solid green', borderRight: '1px solid green' }}></div>
-        <div style={{ width: '14px', margin: '0 auto', borderLeft: '1px solid blue', borderTop: '1px solid blue' }}></div>
-      </div>
+    <div>
+      {active ? (
+        <div
+          style={{
+            height: "30px",
+            width: "30px",
+            display: "flex",
+            flexWrap: "wrap",
+            position: "relative"
+          }}
+        >
+          <div
+            style={css.one}
+          ></div>
+          <div
+            style={css.two}
+          ></div>
+          <div
+            style={{
+              position: "absolute",
+              left: "12px",
+              top: "12px",
+              height: "6px",
+              width: "6px",
+              backgroundColor: "purple",
+              borderRadius: "50%",
+              display: "inline-block"
+            }}
+          ></div>
+          <div
+            style={css.three}
+          ></div>
+          <div
+            style={css.four}
+          ></div>
+        </div>
+      ) : (
+        <div
+          style={{
+            height: "30px",
+            width: "30px",
+            display: "flex",
+            flexWrap: "wrap",
+            position: "relative"
+          }}
+        ></div>
+      )}
+    </div>
   );
 };
 

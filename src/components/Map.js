@@ -24,10 +24,12 @@ const Map = ({ roomsArray, roomsObject }) => {
       setLengthOfX(lengthOfX);
       setLengthOfY(lengthOfY);
       setMatrix(matrix);
-      setWidthStyle(lengthOfX.length * 30);
+      setWidthStyle(lengthOfX * 30);
       setCheckActive(checkActive);
     }
   }, [roomsObject, roomsArray]);
+
+  console.log(coordinates);
 
   return (
     <div
@@ -47,12 +49,27 @@ const Map = ({ roomsArray, roomsObject }) => {
                   active = true;
                 }
               }
+              let room = coordinates[`${colIndex} ${rowIndex}`];
+              let hallways = {};
+              if (room) {
+                if (room.n_to) {
+                  hallways.n = true;
+                }
+                if (room.s_to) {
+                  hallways.s = true;
+                }
+                if (room.e_to) {
+                  hallways.e = true;
+                }
+                if (room.w_to) {
+                  hallways.w = true;
+                }
+              }
               return (
                 <Room
                   key={`${rowIndex} ${colIndex}`}
-                  rowIndex={rowIndex}
-                  colIndex={colIndex}
                   active={active}
+                  hallways={hallways}
                 />
               );
             })
