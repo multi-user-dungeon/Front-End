@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Login from "./Login";
-import Register from "./Register";
-import MoveButtons from "./MoveButtons";
-import Logout from "./Logout";
-import CurrentRoom from "./CurrentRoom";
-import Map from "./Map";
+import { Route, Switch } from "react-router-dom";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import Homepage from "./Homepage";
+import Game from "./Game";
 
 function App() {
   const [currentRoom, setCurrentRoom] = useState({});
@@ -13,7 +10,7 @@ function App() {
   const [error, setError] = useState(false);
   const [roomsArray, setRoomsArray] = useState([]);
   const [roomsObject, setRoomsObject] = useState({});
-  const [playerRoom, setPlayerRoom] = useState({})
+  const [playerRoom, setPlayerRoom] = useState({});
 
   useEffect(() => {
     if (localStorage.getItem("key")) {
@@ -52,29 +49,38 @@ function App() {
   }, [loggedIn]);
 
   useEffect(() => {
-    const room = roomsArray.find(element => element.title === currentRoom.title) 
-    setPlayerRoom({...room, ...currentRoom})
-  }, [roomsArray, currentRoom])
+    const room = roomsArray.find(
+      element => element.title === currentRoom.title
+    );
+    setPlayerRoom({ ...room, ...currentRoom });
+  }, [roomsArray, currentRoom]);
 
   return (
-    <div className="App">
-      <p>Login</p>
-      <Login setLoggedIn={setLoggedIn} />
-      <p>Register</p>
-      <Register />
-      <p>Logout</p>
-      <Logout setLoggedIn={setLoggedIn} />
-      <p>Current Room</p>
-      <CurrentRoom currentRoom={currentRoom} />
-      {error ? <p>Error loading map...</p> : null}
-      <p>Move Buttons</p>
-      <MoveButtons setCurrentRoom={setCurrentRoom} />
-      <p>Map</p>
-      <Map
-        roomsArray={roomsArray}
-        roomsObject={roomsObject}
-        player={playerRoom}
-      />
+    <div>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <Homepage setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
+          )}
+        />
+        <Route
+          path="/game"
+          render={() => (
+            <Game
+              setLoggedIn={setLoggedIn}
+              loggedIn={loggedIn}
+              roomsArray={roomsArray}
+              roomsObject={roomsObject}
+              player={playerRoom}
+              currentRoom={currentRoom}
+              setCurrentRoom={setCurrentRoom}
+              error={error}
+            />
+          )}
+        />
+      </Switch>
     </div>
   );
 }

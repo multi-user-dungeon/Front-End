@@ -4,7 +4,7 @@ import chooseLinesToDisplay from "../utils/chooseLinesToDisplay";
 const middleDot = player => {
   let color = "purple";
   if (player) {
-    color = "yellow";
+    color = "green";
   }
   return {
     position: "absolute",
