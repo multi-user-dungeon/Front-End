@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
-const testServer = "https://lambda-mud-test.herokuapp.com/api/registration/";
-
-const realServer = "http://mud18-app.herokuapp.com/api/registration/";
+import server from "../utils/switchServers";
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState({
@@ -30,12 +27,12 @@ const Register = () => {
       userInfo.password1.length >= 8
     ) {
       axios
-        .post(testServer, userInfo)
+        .post(`${server.server}/api/registration`, userInfo)
         .then(res => localStorage.setItem("key", res.data.key))
-        .catch(error =>
-          {console.log(error)
-          setError("Username has already been taken. Please try name.")}
-        );
+        .catch(error => {
+          console.log(error);
+          setError("Username has already been taken. Please try name.");
+        });
     } else {
       if (userInfo.password1.length < 8) {
         setError("Password needs to be at least 8 characters long.");
