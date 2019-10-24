@@ -1,8 +1,5 @@
 import axios from "axios";
-
-const testServer = "https://lambda-mud-test.herokuapp.com";
-
-const realServer = "http://mud18-app.herokuapp.com";
+import server from "./switchServers";
 
 const axiosWithAuth = () => {
   const token = localStorage.getItem("key");
@@ -11,7 +8,7 @@ const axiosWithAuth = () => {
     headers: {
       Authorization: `Token ${token}`
     },
-    baseURL: testServer
+    baseURL: server.server
   });
 };
 
