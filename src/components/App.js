@@ -63,32 +63,75 @@ function App() {
           height: "30px",
           width: "30px",
           background: "grey",
-          display: "flex"
+          display: "flex",
+          flexWrap: 'wrap',
+          position: 'relative'
         }}
       >
-        {/* How to make a dot in the middle <div
-          style={{ margin: 'auto', justifyContent: "center", border: "1px solid black" }}
+        {/* How to make a dot in the middle - for player dot */}
+        {/* <div
+          style={{
+            margin: "auto",
+            justifyContent: "center",
+            border: "5px solid green"
+          }}
         ></div> */}
         {/* Makes a middle line */}
-        {/* <div
-          style={{ margin: '0 auto', justifyContent: "center", border: "1px solid black" }}
-        ></div> */}
-
-        <div style={{ flexDirection: "column" }}>
+        {/* <div>
           <div
             style={{
-              position: "relative",
-              left: "100px",
-              top: "100px",
-              border: "1px dotted white",
-              width: "3px",
-              height: "3px",
-              backgroundColor: "black",
-              boxSizing: "border-box",
-              transform: "scale(11)"
+              margin: "0 auto",
+              justifyContent: "center",
+              border: "1px solid black"
             }}
           ></div>
         </div>
+        <div>
+          <div
+            style={{
+              margin: "0 auto",
+              justifyContent: "center",
+              border: "1px solid red"
+            }}
+          ></div>
+        </div> */}
+
+        {/* Makes a vertical line, can use twice to enable/disable */}
+        {/* <div
+          style={{ display: "flex", flexDirection: "column", width: "100%" }}
+        >
+          <div
+            style={{
+              margin: "auto 0",
+              alignContent: "center",
+              border: "1px solid black"
+            }}
+          ></div>
+        </div>
+        <div
+          style={{
+            margin: "auto",
+            justifyContent: "center",
+            border: "5px solid green"
+          }}
+        ></div>
+        <div
+          style={{ display: "flex", flexDirection: "column", width: "100%" }}
+        >
+          <div
+            style={{
+              margin: "auto 0",
+              alignContent: "center",
+              border: "1px solid red"
+            }}
+          ></div>
+        </div> */}
+
+        <div style={{ width: '14px', margin: '0 auto', borderRight: '1px solid black', borderBottom: '1px solid black' }}></div>
+        <div style={{ width: '14px', margin: '0 auto', borderLeft: '1px solid red', borderBottom: '1px solid red' }}></div>
+        <div style={{ position: 'absolute', left: '12px', top: '12px', height: '6px', width: '6px', backgroundColor: 'purple', borderRadius: '50%', display: 'inline-block' }}></div>
+        <div style={{ width: '14px', margin: '0 auto', borderTop: '1px solid green', borderRight: '1px solid green' }}></div>
+        <div style={{ width: '14px', margin: '0 auto', borderLeft: '1px solid blue', borderTop: '1px solid blue' }}></div>
       </div>
     </div>
   );
