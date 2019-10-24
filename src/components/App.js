@@ -13,6 +13,7 @@ function App() {
   const [error, setError] = useState(false);
   const [roomsArray, setRoomsArray] = useState([]);
   const [roomsObject, setRoomsObject] = useState({});
+  const [playerRoom, setPlayerRoom] = useState({})
 
   useEffect(() => {
     if (localStorage.getItem("key")) {
@@ -50,6 +51,11 @@ function App() {
     }
   }, [loggedIn]);
 
+  useEffect(() => {
+    const room = roomsArray.find(element => element.title === currentRoom.title) 
+    setPlayerRoom({...room, ...currentRoom})
+  }, [roomsArray, currentRoom])
+
   return (
     <div className="App">
       <p>Login</p>
@@ -64,7 +70,11 @@ function App() {
       <p>Move Buttons</p>
       <MoveButtons setCurrentRoom={setCurrentRoom} />
       <p>Map</p>
-      <Map roomsArray={roomsArray} roomsObject={roomsObject} />
+      <Map
+        roomsArray={roomsArray}
+        roomsObject={roomsObject}
+        player={playerRoom}
+      />
     </div>
   );
 }

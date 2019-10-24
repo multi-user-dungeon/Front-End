@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Room from "./Room";
 import createCoordinatesFromFirstPoint from "../utils/createCoordinatesFromFirstPoint";
 
-const Map = ({ roomsArray, roomsObject }) => {
+const Map = ({ roomsArray, roomsObject, player }) => {
   const [coordinates, setCoordinates] = useState({});
   const [matrix, setMatrix] = useState([]);
   const [widthStyle, setWidthStyle] = useState(0);
@@ -24,6 +24,8 @@ const Map = ({ roomsArray, roomsObject }) => {
     }
   }, [roomsObject, roomsArray]);
 
+  console.log(player);
+
   return (
     <div
       style={{
@@ -37,6 +39,7 @@ const Map = ({ roomsArray, roomsObject }) => {
         ? matrix.map((row, rowIndex) =>
             row.map((_, colIndex) => {
               let active = false;
+              let activePlayer = false;
               if (checkActive[colIndex]) {
                 if (checkActive[colIndex].includes(rowIndex)) {
                   active = true;
@@ -44,6 +47,13 @@ const Map = ({ roomsArray, roomsObject }) => {
               }
               let room = coordinates[`${colIndex} ${rowIndex}`];
               let hallways = {};
+
+              if (player && room) {
+                if (player.title === room.title) {
+                  activePlayer = true;
+                }
+              }
+
               if (room) {
                 if (room.n_to) {
                   hallways.n = true;
@@ -58,11 +68,13 @@ const Map = ({ roomsArray, roomsObject }) => {
                   hallways.w = true;
                 }
               }
+
               return (
                 <Room
                   key={`${rowIndex} ${colIndex}`}
                   active={active}
                   hallways={hallways}
+                  player={activePlayer}
                 />
               );
             })
