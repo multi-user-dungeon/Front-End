@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
-const testServer = "https://lambda-mud-test.herokuapp.com/api/login/"
-
-const realServer = "http://mud18-app.herokuapp.com/api/login/"
+import server from "../utils/switchServers";
 
 const Login = ({ setLoggedIn }) => {
   const [userInfo, setUserInfo] = useState({ username: "", password: "" });
@@ -21,7 +18,7 @@ const Login = ({ setLoggedIn }) => {
     event.preventDefault();
     if (userInfo.username && userInfo.password) {
       axios
-        .post(testServer, userInfo)
+        .post(`${server.server}/api/login/`, userInfo)
         .then(res => {
           localStorage.setItem("key", res.data.key);
           setLoggedIn(true);

@@ -1,27 +1,51 @@
 import React, { useState, useEffect } from "react";
+import chooseLinesToDisplay from "../utils/chooseLinesToDisplay";
 
-const Room = ({ rowIndex, colIndex, active }) => {
-  const [color, setColor] = useState("");
+const middleDot = player => {
+  let color = "purple";
+  if (player) {
+    color = "green";
+  }
+  return {
+    position: "absolute",
+    left: "12px",
+    top: "12px",
+    height: "6px",
+    width: "6px",
+    backgroundColor: color,
+    borderRadius: "50%",
+    display: "inline-block"
+  };
+};
+
+const wrapper = {
+  height: "30px",
+  width: "30px",
+  display: "flex",
+  flexWrap: "wrap",
+  position: "relative"
+};
+
+const Room = ({ hallways, active, player }) => {
+  const [css, setCSS] = useState({});
 
   useEffect(() => {
-    if (active) {
-      setColor("red");
-    } else {
-      setColor("white");
-    }
-  }, [active]);
+    setCSS(chooseLinesToDisplay(hallways));
+  }, [hallways]);
 
   return (
-    <div
-      style={{
-        width: "30px",
-        height: "30px",
-        border: "1px solid lightgray",
-        boxSizing: "border-box",
-        background: color
-      }}
-    >
-      {rowIndex} {colIndex}
+    <div>
+      {active ? (
+        <div style={wrapper}>
+          <div style={css.one}></div>
+          <div style={css.two}></div>
+          <div style={middleDot(player)}></div>
+          <div style={css.three}></div>
+          <div style={css.four}></div>
+        </div>
+      ) : (
+        <div style={wrapper}></div>
+      )}
     </div>
   );
 };
