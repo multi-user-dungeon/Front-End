@@ -63,7 +63,8 @@ function App() {
           width: "30px",
           background: "grey",
           display: "flex",
-          flexWrap: 'wrap'
+          flexWrap: 'wrap',
+          position: 'relative'
         }}
       >
         {/* How to make a dot in the middle - for player dot */}
@@ -127,6 +128,7 @@ function App() {
 
         <div style={{ width: '14px', margin: '0 auto', borderRight: '1px solid black', borderBottom: '1px solid black' }}></div>
         <div style={{ width: '14px', margin: '0 auto', borderLeft: '1px solid red', borderBottom: '1px solid red' }}></div>
+        <div style={{ position: 'absolute', left: '12px', top: '12px', height: '6px', width: '6px', backgroundColor: 'purple', borderRadius: '50%', display: 'inline-block' }}></div>
         <div style={{ width: '14px', margin: '0 auto', borderTop: '1px solid green', borderRight: '1px solid green' }}></div>
         <div style={{ width: '14px', margin: '0 auto', borderLeft: '1px solid blue', borderTop: '1px solid blue' }}></div>
       </div>
