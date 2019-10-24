@@ -56,6 +56,39 @@ function App() {
       <MoveButtons setCurrentRoom={setCurrentRoom} />
       <p>Map</p>
       <Map roomsArray={roomsArray} roomsObject={roomsObject} />
+      <p>Testing CSS</p>
+      <div
+        style={{
+          height: "30px",
+          width: "30px",
+          background: "grey",
+          display: "flex"
+        }}
+      >
+        {/* How to make a dot in the middle <div
+          style={{ margin: 'auto', justifyContent: "center", border: "1px solid black" }}
+        ></div> */}
+        {/* Makes a middle line */}
+        {/* <div
+          style={{ margin: '0 auto', justifyContent: "center", border: "1px solid black" }}
+        ></div> */}
+
+        <div style={{ flexDirection: "column" }}>
+          <div
+            style={{
+              position: "relative",
+              left: "100px",
+              top: "100px",
+              border: "1px dotted white",
+              width: "3px",
+              height: "3px",
+              backgroundColor: "black",
+              boxSizing: "border-box",
+              transform: "scale(11)"
+            }}
+          ></div>
+        </div>
+      </div>
     </div>
   );
 }
