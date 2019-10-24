@@ -3,6 +3,28 @@ import { Redirect } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 
+const userText = displayLogin => {
+  let background;
+  if (displayLogin) {
+    background = "blue";
+  } else {
+    background = "white";
+  }
+  return {
+    width: "50%",
+    textAlign: "center",
+    backgroundColor: background
+  };
+};
+
+const userBackground = {
+  display: "flex",
+  flexWrap: "wrap",
+  width: "500px",
+  margin: "auto",
+  justifyContent: "center"
+};
+
 const Homepage = ({ setLoggedIn, loggedIn }) => {
   const [displayLogin, setDisplayLogin] = useState(false);
 
@@ -14,9 +36,14 @@ const Homepage = ({ setLoggedIn, loggedIn }) => {
     }
   };
   return (
-    <div>
-      <p onClick={event => toggleLogin(event)}>Login</p>
-      <p onClick={event => toggleLogin(event)}>Register</p>
+    <div style={userBackground}>
+      <div style={userText(displayLogin)} onClick={event => toggleLogin(event)}>
+        Login
+      </div>
+      <div style={userText(!displayLogin)} onClick={event => toggleLogin(event)}>
+        Register
+      </div>
+
       {displayLogin ? (
         <Login setLoggedIn={setLoggedIn} />
       ) : (

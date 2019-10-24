@@ -2,6 +2,14 @@ import React, { useState, useEffect } from "react";
 import Room from "./Room";
 import createCoordinatesFromFirstPoint from "../utils/createCoordinatesFromFirstPoint";
 
+const map = widthStyle => ({
+  display: "flex",
+  flexWrap: "wrap",
+  maxWidth: widthStyle,
+  transform: "scale(1, -1)",
+  border: "1px solid black"
+});
+
 const Map = ({ roomsArray, roomsObject, player }) => {
   const [coordinates, setCoordinates] = useState({});
   const [matrix, setMatrix] = useState([]);
@@ -24,17 +32,8 @@ const Map = ({ roomsArray, roomsObject, player }) => {
     }
   }, [roomsObject, roomsArray]);
 
-  console.log(player);
-
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        maxWidth: widthStyle,
-        transform: "scale(1, -1)"
-      }}
-    >
+    <div style={map(widthStyle)}>
       {roomsArray[0]
         ? matrix.map((row, rowIndex) =>
             row.map((_, colIndex) => {

@@ -4,6 +4,14 @@ import Map from "./Map";
 import CurrentRoom from "./CurrentRoom";
 import MoveButtons from "./MoveButtons";
 
+const userBackground = {
+  display: "flex",
+  flexWrap: "wrap",
+  width: "500px",
+  margin: "auto",
+  justifyContent: "center"
+};
+
 const Game = ({
   setLoggedIn,
   loggedIn,
@@ -11,20 +19,25 @@ const Game = ({
   roomsObject,
   player,
   currentRoom,
-  setCurrentRoom,
-  error
+  setCurrentRoom
 }) => {
   return (
     <div>
-      <p>Logout</p>
-      <Logout setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
-      <p>Map</p>
-      <Map roomsArray={roomsArray} roomsObject={roomsObject} player={player} />
-      <p>Current Room</p>
-      <CurrentRoom currentRoom={currentRoom} />
-      {error ? <p>Error loading map...</p> : null}
-      <p>Move Buttons</p>
-      <MoveButtons setCurrentRoom={setCurrentRoom} />
+      {roomsArray[0] ? (
+        <div style={userBackground}>
+          <Logout setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
+          <p>Map of the World</p>
+          <Map
+            roomsArray={roomsArray}
+            roomsObject={roomsObject}
+            player={player}
+          />
+          <CurrentRoom currentRoom={currentRoom} />
+          <MoveButtons setCurrentRoom={setCurrentRoom} />
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 };
