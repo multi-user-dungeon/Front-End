@@ -4,8 +4,6 @@ import createCoordinatesFromFirstPoint from "../utils/createCoordinatesFromFirst
 
 const Map = ({ roomsArray, roomsObject }) => {
   const [coordinates, setCoordinates] = useState({});
-  const [lengthOfX, setLengthOfX] = useState(0);
-  const [lengthOfY, setLengthOfY] = useState(0);
   const [matrix, setMatrix] = useState([]);
   const [widthStyle, setWidthStyle] = useState(0);
   const [checkActive, setCheckActive] = useState({});
@@ -15,21 +13,16 @@ const Map = ({ roomsArray, roomsObject }) => {
       const {
         coordinates,
         lengthOfX,
-        lengthOfY,
         matrix,
         checkActive
       } = createCoordinatesFromFirstPoint(roomsObject);
 
       setCoordinates(coordinates);
-      setLengthOfX(lengthOfX);
-      setLengthOfY(lengthOfY);
       setMatrix(matrix);
       setWidthStyle(lengthOfX * 30);
       setCheckActive(checkActive);
     }
   }, [roomsObject, roomsArray]);
-
-  console.log(coordinates);
 
   return (
     <div

@@ -1,104 +1,107 @@
+const borderPx = `1px solid black`
+const widthPx = '14px'
+
 export const bUp = {
-  one : {width: '14px', margin: '0 auto', borderRight: '1px solid black'},
-  two: {width: '14px', margin: '0 auto', borderLeft: '1px solid black'},
-  three: {width: '14px', margin: '0 auto'},
-  four: {width: '14px', margin: '0 auto'}
+  one : {width: widthPx, margin: '0 auto', borderRight: borderPx},
+  two: {width: widthPx, margin: '0 auto', borderLeft: borderPx},
+  three: {width: widthPx, margin: '0 auto'},
+  four: {width: widthPx, margin: '0 auto'}
 }
 
 export const bDown = {
-  one : {width: '14px', margin: '0 auto'},
-  two: {width: '14px', margin: '0 auto'},
-  three: {width: '14px', margin: '0 auto', borderRight: '1px solid black'},
-  four: {width: '14px', margin: '0 auto', borderLeft: '1px solid black'}
+  one : {width: widthPx, margin: '0 auto'},
+  two: {width: widthPx, margin: '0 auto'},
+  three: {width: widthPx, margin: '0 auto', borderRight: borderPx},
+  four: {width: widthPx, margin: '0 auto', borderLeft: borderPx}
 }
 
 export const bLeft = {
-  one : {width: '14px', margin: '0 auto', borderBottom: '1px solid black'},
-  two: {width: '14px', margin: '0 auto'},
-  three: {width: '14px', margin: '0 auto', borderTop: '1px solid black'},
-  four: {width: '14px', margin: '0 auto'}
+  one : {width: widthPx, margin: '0 auto', borderBottom: borderPx},
+  two: {width: widthPx, margin: '0 auto'},
+  three: {width: widthPx, margin: '0 auto', borderTop: borderPx},
+  four: {width: widthPx, margin: '0 auto'}
 }
 
 export const bRight = {
-  one : {width: '14px', margin: '0 auto'},
-  two: {width: '14px', margin: '0 auto', borderBottom: '1px solid black'},
-  three: {width: '14px', margin: '0 auto'},
-  four: {width: '14px', margin: '0 auto', borderTop: '1px solid black'}
+  one : {width: widthPx, margin: '0 auto'},
+  two: {width: widthPx, margin: '0 auto', borderBottom: borderPx},
+  three: {width: widthPx, margin: '0 auto'},
+  four: {width: widthPx, margin: '0 auto', borderTop: borderPx}
 }
 
 export const bUpLeft = {
-  one : {width: '14px', margin: '0 auto', borderRight: '1px solid black', borderBottom: '1px solid black'},
-  two: {width: '14px', margin: '0 auto', borderLeft: '1px solid black'},
-  three: {width: '14px', margin: '0 auto', borderTop: '1px solid black'},
-  four: {width: '14px', margin: '0 auto'}
+  one : {width: widthPx, margin: '0 auto', borderRight: borderPx, borderBottom: borderPx},
+  two: {width: widthPx, margin: '0 auto', borderLeft: borderPx},
+  three: {width: widthPx, margin: '0 auto', borderTop: borderPx},
+  four: {width: widthPx, margin: '0 auto'}
 }
 
 export const bUpRight = {
-  one : {width: '14px', margin: '0 auto', borderRight: '1px solid black'},
-  two: {width: '14px', margin: '0 auto', borderLeft: '1px solid black', borderBottom: '1px solid black'},
-  three: {width: '14px', margin: '0 auto'},
-  four: {width: '14px', margin: '0 auto', borderTop: '1px solid black'}
+  one : {width: widthPx, margin: '0 auto', borderRight: borderPx},
+  two: {width: widthPx, margin: '0 auto', borderLeft: borderPx, borderBottom: borderPx},
+  three: {width: widthPx, margin: '0 auto'},
+  four: {width: widthPx, margin: '0 auto', borderTop: borderPx}
 }
 
 export const bDownLeft = {
-  one : {width: '14px', margin: '0 auto', borderBottom: '1px solid black'},
-  two: {width: '14px', margin: '0 auto'},
-  three: {width: '14px', margin: '0 auto', borderRight: '1px solid black', borderTop: '1px solid black'},
-  four: {width: '14px', margin: '0 auto', borderLeft: '1px solid black'}
+  one : {width: widthPx, margin: '0 auto', borderBottom: borderPx},
+  two: {width: widthPx, margin: '0 auto'},
+  three: {width: widthPx, margin: '0 auto', borderRight: borderPx, borderTop: borderPx},
+  four: {width: widthPx, margin: '0 auto', borderLeft: borderPx}
 }
 
 export const bDownRight = {
-  one : {width: '14px', margin: '0 auto'},
-  two: {width: '14px', margin: '0 auto', borderBottom: '1px solid black'},
-  three: {width: '14px', margin: '0 auto', borderRight: '1px solid black'},
-  four: {width: '14px', margin: '0 auto', borderLeft: '1px solid black', borderTop: '1px solid black'}
+  one : {width: widthPx, margin: '0 auto'},
+  two: {width: widthPx, margin: '0 auto', borderBottom: borderPx},
+  three: {width: widthPx, margin: '0 auto', borderRight: borderPx},
+  four: {width: widthPx, margin: '0 auto', borderLeft: borderPx, borderTop: borderPx}
 }
 
 export const bUpDown = {
-  one : {width: '14px', margin: '0 auto', borderRight: '1px solid black'},
-  two: {width: '14px', margin: '0 auto', borderLeft: '1px solid black'},
-  three: {width: '14px', margin: '0 auto', borderRight: '1px solid black'},
-  four: {width: '14px', margin: '0 auto', borderLeft: '1px solid black'}
+  one : {width: widthPx, margin: '0 auto', borderRight: borderPx},
+  two: {width: widthPx, margin: '0 auto', borderLeft: borderPx},
+  three: {width: widthPx, margin: '0 auto', borderRight: borderPx},
+  four: {width: widthPx, margin: '0 auto', borderLeft: borderPx}
 }
 
 export const bLeftRight = {
-  one : {width: '14px', margin: '0 auto', borderBottom: '1px solid black'},
-  two: {width: '14px', margin: '0 auto', borderBottom: '1px solid black'},
-  three: {width: '14px', margin: '0 auto', borderTop: '1px solid black'},
-  four: {width: '14px', margin: '0 auto', borderTop: '1px solid black'}
+  one : {width: widthPx, margin: '0 auto', borderBottom: borderPx},
+  two: {width: widthPx, margin: '0 auto', borderBottom: borderPx},
+  three: {width: widthPx, margin: '0 auto', borderTop: borderPx},
+  four: {width: widthPx, margin: '0 auto', borderTop: borderPx}
 }
 
 export const bUpLeftRight = {
-  one : {width: '14px', margin: '0 auto', borderRight: '1px solid black', borderBottom: '1px solid black'},
-  two: {width: '14px', margin: '0 auto', borderLeft: '1px solid black', borderBottom: '1px solid black'},
-  three: {width: '14px', margin: '0 auto', borderTop: '1px solid black'},
-  four: {width: '14px', margin: '0 auto', borderTop: '1px solid black'}
+  one : {width: widthPx, margin: '0 auto', borderRight: borderPx, borderBottom: borderPx},
+  two: {width: widthPx, margin: '0 auto', borderLeft: borderPx, borderBottom: borderPx},
+  three: {width: widthPx, margin: '0 auto', borderTop: borderPx},
+  four: {width: widthPx, margin: '0 auto', borderTop: borderPx}
 }
 
 export const bUpLeftDown = {
-  one : {width: '14px', margin: '0 auto', borderRight: '1px solid black', borderBottom: '1px solid black'},
-  two: {width: '14px', margin: '0 auto', borderLeft: '1px solid black'},
-  three: {width: '14px', margin: '0 auto', borderRight: '1px solid black', borderTop: '1px solid black'},
-  four: {width: '14px', margin: '0 auto', borderLeft: '1px solid black'}
+  one : {width: widthPx, margin: '0 auto', borderRight: borderPx, borderBottom: borderPx},
+  two: {width: widthPx, margin: '0 auto', borderLeft: borderPx},
+  three: {width: widthPx, margin: '0 auto', borderRight: borderPx, borderTop: borderPx},
+  four: {width: widthPx, margin: '0 auto', borderLeft: borderPx}
 }
 
 export const bUpDownRight = {
-  one : {width: '14px', margin: '0 auto', borderRight: '1px solid black'},
-  two: {width: '14px', margin: '0 auto', borderLeft: '1px solid black', borderBottom: '1px solid black'},
-  three: {width: '14px', margin: '0 auto', borderRight: '1px solid black'},
-  four: {width: '14px', margin: '0 auto', borderLeft: '1px solid black', borderTop: '1px solid black'}
+  one : {width: widthPx, margin: '0 auto', borderRight: borderPx},
+  two: {width: widthPx, margin: '0 auto', borderLeft: borderPx, borderBottom: borderPx},
+  three: {width: widthPx, margin: '0 auto', borderRight: borderPx},
+  four: {width: widthPx, margin: '0 auto', borderLeft: borderPx, borderTop: borderPx}
 }
 
 export const bDownRightLeft = {
-  one : {width: '14px', margin: '0 auto', borderBottom: '1px solid black'},
-  two: {width: '14px', margin: '0 auto', borderBottom: '1px solid black'},
-  three: {width: '14px', margin: '0 auto', borderRight: '1px solid black', borderTop: '1px solid black'},
-  four: {width: '14px', margin: '0 auto', borderLeft: '1px solid black', borderTop: '1px solid black'}
+  one : {width: widthPx, margin: '0 auto', borderBottom: borderPx},
+  two: {width: widthPx, margin: '0 auto', borderBottom: borderPx},
+  three: {width: widthPx, margin: '0 auto', borderRight: borderPx, borderTop: borderPx},
+  four: {width: widthPx, margin: '0 auto', borderLeft: borderPx, borderTop: borderPx}
 }
 
 export const bUpDownLeftRight = {
-  one : {width: '14px', margin: '0 auto', borderRight: '1px solid black', borderBottom: '1px solid black'},
-  two: {width: '14px', margin: '0 auto', borderLeft: '1px solid black', borderBottom: '1px solid black'},
-  three: {width: '14px', margin: '0 auto', borderRight: '1px solid black', borderTop: '1px solid black'},
-  four: {width: '14px', margin: '0 auto', borderLeft: '1px solid black', borderTop: '1px solid black'}
+  one : {width: widthPx, margin: '0 auto', borderRight: borderPx, borderBottom: borderPx},
+  two: {width: widthPx, margin: '0 auto', borderLeft: borderPx, borderBottom: borderPx},
+  three: {width: widthPx, margin: '0 auto', borderRight: borderPx, borderTop: borderPx},
+  four: {width: widthPx, margin: '0 auto', borderLeft: borderPx, borderTop: borderPx}
 }

@@ -27,7 +27,7 @@ const Register = () => {
       userInfo.password1.length >= 8
     ) {
       axios
-        .post(`${server.server}/api/registration`, userInfo)
+        .post(`${server.server}/api/registration/`, userInfo)
         .then(res => localStorage.setItem("key", res.data.key))
         .catch(error => {
           console.log(error);

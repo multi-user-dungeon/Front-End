@@ -32,10 +32,19 @@ function App() {
           let roomObject = {};
           let roomArray = JSON.parse(res.data.rooms);
           roomArray.forEach(room => {
-            roomObject[room.pk] = room;
+            roomObject[room.id] = room;
           });
           setRoomsObject(roomObject);
           setRoomsArray(roomArray);
+
+          // For Test  Server
+          // let roomObject = {};
+          // let roomArray = JSON.parse(res.data.rooms);
+          // roomArray.forEach(room => {
+          //   roomObject[room.pk] = room;
+          // });
+          // setRoomsObject(roomObject);
+          // setRoomsArray(roomArray);
         })
         .catch(error => console.log(error));
     }

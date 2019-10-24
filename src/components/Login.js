@@ -18,7 +18,7 @@ const Login = ({ setLoggedIn }) => {
     event.preventDefault();
     if (userInfo.username && userInfo.password) {
       axios
-        .post(`${server.server}/api/login`, userInfo)
+        .post(`${server.server}/api/login/`, userInfo)
         .then(res => {
           localStorage.setItem("key", res.data.key);
           setLoggedIn(true);
