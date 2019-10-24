@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../../../node_modules/react-vis/dist/style.css';
 import {
   XYPlot,
   XAxis,
@@ -23,25 +24,24 @@ function WorldMap() {
       console.log(err);
     });
 
-  //   if (worldmap.rooms !== undefined) {
-  //     console.log('Sample Rooms', worldmap.rooms);
-  //   }
   return (
-    <XYPlot width={300} height={300}>
-      <VerticalGridLines />
-      <HorizontalGridLines />
-      <XAxis />
-      <YAxis />
-      <LineMarkSeries
-        className='linemark-series-example'
-        style={{
-          strokeWidth: '3px'
-        }}
-        lineStyle={{ stroke: 'red' }}
-        markStyle={{ stroke: 'blue' }}
-        data={[{ x: 1, y: 10 }, { x: 2, y: 5 }, { x: 3, y: 15 }]}
-      />
-    </XYPlot>
+    <>
+      <XYPlot width={800} height={800}>
+        <VerticalGridLines />
+        <HorizontalGridLines />
+        <XAxis />
+        <YAxis />
+        <LineMarkSeries
+          className='linemark-series-example'
+          style={{
+            strokeWidth: '3px'
+          }}
+          lineStyle={{ stroke: 'red' }}
+          markStyle={{ stroke: 'blue' }}
+          data={[{ x: 1, y: 10 }, { x: 2, y: 5 }, { x: 3, y: 15 }]}
+        />
+      </XYPlot>
+    </>
   );
 }
 
