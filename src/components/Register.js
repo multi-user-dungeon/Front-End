@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import server from "../utils/switchServers";
 
+const fullWidth = {
+  width: "100%",
+  // border: "1px solid black"
+};
+
 const Register = ({ setLoggedIn }) => {
   const [userInfo, setUserInfo] = useState({
     username: "",
@@ -45,7 +50,11 @@ const Register = ({ setLoggedIn }) => {
   };
 
   return (
-    <form autoComplete="off" onSubmit={event => onRegister(event)}>
+    <form
+      autoComplete="off"
+      onSubmit={event => onRegister(event)}
+      style={fullWidth}
+    >
       <input
         autoComplete="new-username"
         type="text"
@@ -53,6 +62,7 @@ const Register = ({ setLoggedIn }) => {
         name="username"
         value={userInfo.username}
         onChange={event => onInputChange(event)}
+        style={fullWidth}
       />
       <input
         autoComplete="new-email"
@@ -61,6 +71,7 @@ const Register = ({ setLoggedIn }) => {
         name="email"
         value={userInfo.email}
         onChange={event => onInputChange(event)}
+        style={fullWidth}
       />
       <input
         autoComplete="new-password"
@@ -69,6 +80,7 @@ const Register = ({ setLoggedIn }) => {
         name="password1"
         value={userInfo.password1}
         onChange={event => onInputChange(event)}
+        style={fullWidth}
       />
       {error ? <p>{error}</p> : null}
       <input
@@ -78,8 +90,11 @@ const Register = ({ setLoggedIn }) => {
         name="password2"
         value={userInfo.password2}
         onChange={event => onInputChange(event)}
+        style={fullWidth}
       />
-      <button onClick={event => onRegister(event)}>Register</button>
+      <button onClick={event => onRegister(event)} style={fullWidth}>
+        Register
+      </button>
     </form>
   );
 };

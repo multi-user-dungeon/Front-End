@@ -1,31 +1,39 @@
 import React from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
+const container = {
+  textAlign: "center"
+};
+
 const MoveButtons = ({ setCurrentRoom }) => {
-  const move = event => {
-    event.persist();
+  const move = direction => {
     axiosWithAuth()
       .post("/api/adv/move/", {
-        direction: event.target.name
+        direction: direction
       })
       .then(res => setCurrentRoom(res.data))
       .catch(error => console.log(error));
   };
 
   return (
-    <div>
-      <button name="n" onClick={event => move(event)}>
-        Up
-      </button>
-      <button name="s" onClick={event => move(event)}>
-        Down
-      </button>
-      <button name="w" onClick={event => move(event)}>
-        Left
-      </button>
-      <button name="e" onClick={event => move(event)}>
-        Right
-      </button>
+    <div style={container}>
+      <p>Move Buttons</p>
+      <div>
+        <button onClick={() => move("n")}>
+          <span>&#8593;</span>
+        </button>
+      </div>
+      <div>
+        <button onClick={() => move("w")}>
+          <span>&#8592;</span>
+        </button>
+        <button onClick={() => move("s")}>
+          <span>&#8595;</span>
+        </button>
+        <button onClick={() => move("e")}>
+          <span>&#8594;</span>
+        </button>
+      </div>
     </div>
   );
 };

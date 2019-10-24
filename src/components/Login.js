@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import server from "../utils/switchServers";
 
+const fullWidth = {
+  width: "100%"
+};
+
 const Login = ({ setLoggedIn }) => {
   const [userInfo, setUserInfo] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
@@ -30,7 +34,11 @@ const Login = ({ setLoggedIn }) => {
   };
 
   return (
-    <form autoComplete="off" onSubmit={event => onLogin(event)}>
+    <form
+      autoComplete="off"
+      onSubmit={event => onLogin(event)}
+      style={fullWidth}
+    >
       <input
         autoComplete="username"
         type="text"
@@ -38,6 +46,7 @@ const Login = ({ setLoggedIn }) => {
         name="username"
         value={userInfo.username}
         onChange={event => onInputChange(event)}
+        style={fullWidth}
       />
       <input
         autoComplete="current-password"
@@ -46,9 +55,12 @@ const Login = ({ setLoggedIn }) => {
         name="password"
         value={userInfo.password}
         onChange={event => onInputChange(event)}
+        style={fullWidth}
       />
       {error ? <p>{error}</p> : null}
-      <button onClick={event => onLogin(event)}>Login</button>
+      <button onClick={event => onLogin(event)} style={fullWidth}>
+        Login
+      </button>
     </form>
   );
 };
